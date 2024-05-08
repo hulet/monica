@@ -497,7 +497,7 @@ class ImportVCard extends BaseService
     private function existingContactWithName(VCard $entry)
     {
         $contact = [];
-        $this->importNames($contact, $entry);
+        $contact = $this->importNames($contact, $entry);
 
         return Contact::where([
             'account_id' => $this->accountId,
