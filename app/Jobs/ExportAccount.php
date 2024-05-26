@@ -73,8 +73,8 @@ class ExportAccount implements ShouldQueue
             $this->exportJob->filename = $file;
 
             $this->exportJob->end();
-        } catch (Throwable $e) {
-            $this->fail($e);
+        //} catch (Throwable $e) {
+            //$this->fail($e);
         } finally {
             // delete old file from temp folder
             $storage = Storage::disk('local');
