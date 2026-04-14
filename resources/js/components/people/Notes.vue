@@ -11,7 +11,7 @@
     <div>
       <div>
         <form class="bg-near-white pa2 br2 mb3">
-          <textarea v-model="newNote.body" v-cy-name="'add-note-textarea'" class="w-100 br2 pa2 b--light-gray" :placeholder="$t('people.notes_add_cta')" @focus="addMode = true"
+          <textarea v-model="newNote.body" v-cy-name="'add-note-textarea'" class="w-100 br2 pa2 b--light-gray" rows="15" :placeholder="$t('people.notes_add_cta')" @focus="addMode = true"
                     @keyup.esc="addMode = false"
           ></textarea>
           <a v-if="addMode" v-cy-name="'add-note-button'" class="pointer btn btn-primary" href="" @click.prevent="store">
@@ -51,7 +51,7 @@
 
           <!-- EDIT MODE -->
           <form v-show="note.edit" class="bg-near-white pa2 br2 mt3 mb3">
-            <textarea v-model="note.body" v-cy-name="'edit-note-body-' + note.id" class="w-100 br2 pa2 b--light-gray" @keyup.esc="note.edit = false"></textarea>
+            <textarea v-model="note.body" v-cy-name="'edit-note-body-' + note.id" class="w-100 br2 pa2 b--light-gray" rows="15" @keyup.esc="note.edit = false"></textarea>
             <a v-cy-name="'edit-mode-note-button-' + note.id" class="pointer btn btn-primary" href="" @click.prevent="update(note)">
               {{ $t('app.update') }}
             </a>
