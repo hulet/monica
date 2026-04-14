@@ -328,7 +328,7 @@ common.loadLanguage(window.Laravel.locale, true).then((i18n) => {
       reminders_frequency: 'once',
       accept_invite_user: false,
       date_met_the_contact: 'known',
-      global_relationship_form_new_contact: true,
+      global_relationship_form_new_contact: false,
       global_profile_default_view: window.Laravel.profileDefaultView,
     },
 

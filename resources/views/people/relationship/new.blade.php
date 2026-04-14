@@ -30,11 +30,11 @@
         <p class="mb2 b">{{ trans('people.relationship_form_add_choice') }}</p>
         <div class="dt dt--fixed">
           <div class="dtc pr2">
-            <input type="radio" id="new" name="relationship_type" value="new" @click="global_relationship_form_new_contact = true" checked>
+            <input type="radio" id="new" name="relationship_type" value="new" @click="global_relationship_form_new_contact = true">
             <label for="new" class="pointer">{{ trans('people.relationship_form_create_contact') }}</label>
           </div>
           <div class="dtc">
-            <input type="radio" id="existing" name="relationship_type" value="existing" @click="global_relationship_form_new_contact = false">
+            <input type="radio" id="existing" name="relationship_type" value="existing" @click="global_relationship_form_new_contact = false" checked>
             <label for="existing" class="pointer">{{ trans('people.relationship_form_associate_contact') }}</label>
           </div>
         </div>
