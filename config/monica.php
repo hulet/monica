@@ -14,6 +14,8 @@ return [
     */
     'app_version' => trim(trim(is_file(__DIR__.'/.version') ? file_get_contents(__DIR__.'/.version') : (is_dir(__DIR__.'/../.git') ? exec('git --git-dir '.base_path('.git').' describe --abbrev=0 --tags') : ''), 'v')),
 
+    'app_commit' => trim(is_file(__DIR__.'/.commit') ? file_get_contents(__DIR__.'/.commit') : (is_dir(__DIR__.'/../.git') ? exec('git --git-dir '.base_path('.git').' log --pretty="%h" -n1 HEAD') : '')),
+
     /*
     |--------------------------------------------------------------------------
     | Disable User registration

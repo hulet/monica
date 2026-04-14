@@ -1,4 +1,6 @@
+ARG GIT_COMMIT=unknown
 FROM node:20-bookworm AS builder
+ARG GIT_COMMIT
 
 # Install PHP (needed for `php artisan lang:generate` pre-build step and composer)
 RUN apt-get update && apt-get install -y \
@@ -26,6 +28,9 @@ RUN yarn run inst && yarn run production
 
 # Remove the temporary build-only .env; runtime env comes from docker-compose
 RUN rm .env
+
+# Write the git commit hash so it appears in the footer
+RUN echo -n "$GIT_COMMIT" > config/.commit
 
 
 FROM lscr.io/linuxserver/monica:latest
