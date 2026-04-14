@@ -2,7 +2,7 @@ FROM node:20-bookworm AS builder
 
 # Install PHP (needed for `php artisan lang:generate` pre-build step and composer)
 RUN apt-get update && apt-get install -y \
-    php8.2 php8.2-xml php8.2-mbstring php8.2-zip php8.2-curl php8.2-intl php8.2-bcmath \
+    php8.2 php8.2-xml php8.2-mbstring php8.2-zip php8.2-curl php8.2-intl php8.2-bcmath php8.2-gd php8.2-gmp php8.2-sqlite3 \
     unzip git \
     && rm -rf /var/lib/apt/lists/*
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -11,7 +11,8 @@ WORKDIR /app
 COPY . .
 
 # Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# --ignore-platform-reqs skips ext-redis and ext-apcu which are runtime-only
+RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs
 
 # `yarn run production` has a pre-script that runs `php artisan lang:generate`,
 # which requires a minimal Laravel env to bootstrap.
