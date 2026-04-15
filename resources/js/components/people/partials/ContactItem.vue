@@ -12,7 +12,7 @@
       vertical-align: middle;
       background: transparent;
 
-      span {
+      span.link-overlay {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -69,7 +69,7 @@
         {{ item.complete_name }}
         <span v-if="item.notes_count > 0" style="color: #888; font-size: 0.85em;">({{ item.notes_count }})</span>
       </template>
-      <span></span>
+      <span class="link-overlay"></span>
     </a>
   </div>
   <div v-else class="item-search-result">
@@ -77,7 +77,7 @@
       +
     </div>
     {{ $t('people.people_add_new') }}
-    <span></span>
+    <span class="link-overlay"></span>
   </div>
 </template>
 
