@@ -67,6 +67,7 @@
       </div>
       <template v-if="withName">
         {{ item.complete_name }}
+        <span v-if="item.notes_count > 0" style="color: #888; font-size: 0.85em;">({{ item.notes_count }})</span>
       </template>
       <span></span>
     </a>

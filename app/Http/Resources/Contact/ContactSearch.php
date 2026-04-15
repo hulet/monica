@@ -29,6 +29,7 @@ class ContactSearch extends JsonResource
             'initials' => $this->getInitials(),
             'is_me' => $this->isMe(),
             'is_starred' => $this->is_starred,
+            'notes_count' => $this->notes_count ?? 0,
             'information' => [
                 'avatar' => [
                     'url' => $this->getAvatarUrl(),

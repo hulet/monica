@@ -579,6 +579,7 @@ class ContactsController extends Controller
         }
 
         $results = SearchHelper::searchContacts($needle, 'created_at')
+            ->withCount('notes')
             ->paginate(20);
 
         if ($results->total() > 0) {
